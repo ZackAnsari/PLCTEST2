@@ -1,0 +1,4 @@
+tokens = ['if', '(', 'x', '<', 'y', ')', '{', 'x', '=', 'y', ';', '}', 'else', '{', 'y', '=', 'x', ';', '}']
+parser = Parser(tokens)
+result = parser.parse()
+print(result) # True

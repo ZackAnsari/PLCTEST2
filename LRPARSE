@@ -1,0 +1,34 @@
+<program> ::= <stmt_list>
+
+<stmt_list> ::= <stmt> ";" <stmt_list>
+| <stmt>
+
+<stmt> ::= <if_stmt>
+| <block>
+| <assign>
+| <declare>
+| <while_loop>
+
+<if_stmt> ::= "if" "(" <bool_expr> ")" <block> [ "else" <block> ]
+
+<block> ::= "{" <stmt_list> "}"
+
+<assign> ::= ID "=" <expr>
+
+<declare> ::= "DataType" ID { "," ID }
+
+<while_loop> ::= "while" "(" <bool_expr> ")" <block>
+
+<expr> ::= <term> { ( "+" | "-" ) <term> }
+
+<term> ::= <fact> { ( "*" | "/" | "%" ) <fact> }
+
+<fact> ::= ID | INT_LIT | FLOAT_LIT | "(" <expr> ")"
+
+<bool_expr> ::= <bterm> { ( ">" | "<" | ">=" | "<=" ) <bterm> }
+
+<bterm> ::= <band> { ( "==" | "!=" ) <band> }
+
+<band> ::= <bor> { "&&" <bor> }
+
+<bor> ::= <expr> { "||" <expr> }
